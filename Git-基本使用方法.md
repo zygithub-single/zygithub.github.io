@@ -285,3 +285,107 @@
     yuanzhang@YuandeMBP test % cat flag.txt
     print('i"m a hacke')
     ```
+
+## 1.5-查看历史提交
+
+- ### git log
+
+  - 查看历史提交记录
+
+  - ```
+    yuanzhang@YuandeMBP learning % git log
+    commit 78bbf5552f52f5db483b88d120ddce8cd93d4d0e (HEAD -> main, origin/main, origin/HEAD)
+    Author: zhangyuan <1802850774@qq.com>
+    Date:   Wed Aug 10 00:02:10 2022 +0800
+    
+        change file-name
+    
+    commit 71ebff78fb2740e6fe398cbb238829550ba17f49
+    Author: zhangyuan <1802850774@qq.com>
+    Date:   Tue Aug 9 10:53:47 2022 +0800
+    
+        update git泄露
+    
+    commit e5d9bc1aae57b36fd26146518485d7ed6df0dc28
+    Author: 张园 <75836557+zygithub-singel@users.noreply.github.com>
+    Date:   Mon Aug 8 11:38:48 2022 +0800
+    
+        Add files via upload
+    ```
+
+  - git log --oneline
+
+    - 查看历史提交记录的简洁版
+
+  - ```
+    yuanzhang@YuandeMBP learning % git log --oneline
+    78bbf55 (HEAD -> main, origin/main, origin/HEAD) change file-name
+    71ebff7 update git泄露
+    e5d9bc1 Add files via upload
+    ```
+
+    
+
+- ### git blame
+
+  - 以列表形式查看指定文件的历史修改记录
+
+  - ```
+    yuanzhang@YuandeMBP learning % git blame assets 
+    fatal: no such path 'assets' in HEAD
+    yuanzhang@YuandeMBP learning % git blame Git-基本使用方法.md 
+    78bbf555 (zhangyuan         2022-08-10 00:02:10 +0800   1) # Git-基本使用方法
+    78bbf555 (zhangyuan         2022-08-10 00:02:10 +0800   2) 
+    78bbf555 (zhangyuan         2022-08-10 00:02:10 +0800   3) ## 1.1-基础知识
+    78bbf555 (zhangyuan         2022-08-10 00:02:10 +0800   4) 
+    78bbf555 (zhangyuan         2022-08-10 00:02:10 +0800   5) - Git 是一个开源的分
+    布式版本控制系统，用于敏捷高效地处理任何或小或大的项目
+    78bbf555 (zhangyuan         2022-08-10 00:02:10 +0800   6) - Git 是 Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件
+    78bbf555 (zhangyuan         2022-08-10 00:02:10 +0800   7) - Git 与常用的版本控
+    制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持
+    78bbf555 (zhangyuan         2022-08-10 00:02:10 +0800   8) 
+    78bbf555 (zhangyuan         2022-08-10 00:02:10 +0800   9) - Git工作流程
+    78bbf555 (zhangyuan         2022-08-10 00:02:10 +0800  10) 
+    78bbf555 (zhangyuan         2022-08-10 00:02:10 +0800  11)   - 克隆操作
+    78bbf555 (zhangyuan         2022-08-10 00:02:10 +0800  12) 
+    78bbf555 (zhangyuan         2022-08-10 00:02:10 +0800  13)     将资源库克隆一份
+    变为工作副本
+    78bbf555 (zhangyuan         2022-08-10 00:02:10 +0800  14) 
+    78bbf555 (zhangyuan         2022-08-10 00:02:10 +0800  15)   - 更新操作
+    78bbf555 (zhangyuan         2022-08-10 00:02:10 +0800  16) 
+    78bbf555 (zhangyuan         2022-08-10 00:02:10 +0800  17)     使用编辑、添加、
+    删除、修改内容功能进行更新操作
+    78bbf555 (zhangyuan         2022-08-10 00:02:10 +0800  18) 
+    ```
+
+## 1.6-版本回退
+
+- git reset
+
+  - 回退版本
+
+  - ```
+    yuanzhang@YuandeMBP learning % git reset 71ebff7 #回退到指定版本
+    Unstaged changes after reset:
+    D	git泄露.md
+    yuanzhang@YuandeMBP learning % git log 
+    commit 71ebff78fb2740e6fe398cbb238829550ba17f49 (HEAD -> main)
+    Author: zhangyuan <1802850774@qq.com>
+    Date:   Tue Aug 9 10:53:47 2022 +0800
+    
+        update git泄露
+    
+    commit e5d9bc1aae57b36fd26146518485d7ed6df0dc28
+    Author: 张园 <75836557+zygithub-singel@users.noreply.github.com>
+    Date:   Mon Aug 8 11:38:48 2022 +0800
+    
+        Add files via upload
+    yuanzhang@YuandeMBP learning % git log --oneline
+    71ebff7 (HEAD -> main) update git泄露
+    e5d9bc1 Add files via upload
+    ```
+
+## 1.7-结束语：
+
+到目前为止，我们已经学习了git的日常管理，以及本地和远程仓库的推送，这些操作已经足够我们日常使用，如果需要更详细的教程，可以直接查阅帮助文档或者访问：https://git-scm.com/book/en/v2
+
